@@ -28,12 +28,6 @@ public class ImageManager {
         }
     }
 
-    public Bitmap getImage(Uri imageUri) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-        return BitmapFactory.decodeFile(imageUri.toString(), options);
-    }
-
     public Uri saveImage(String name, Bitmap bitmap) throws IOException {
         FileOutputStream out = new FileOutputStream(getImageAbsolutePath(name));
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, out);
