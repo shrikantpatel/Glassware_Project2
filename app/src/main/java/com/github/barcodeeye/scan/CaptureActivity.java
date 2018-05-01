@@ -40,8 +40,8 @@ import com.github.barcodeeye.migrated.AmbientLightManager;
 import com.github.barcodeeye.migrated.BeepManager;
 import com.github.barcodeeye.migrated.FinishListener;
 import com.github.barcodeeye.migrated.InactivityTimer;
-import com.github.barcodeeye.scan.result.ResultProcessor;
-import com.github.barcodeeye.scan.result.ResultProcessorFactory;
+//import com.github.barcodeeye.scan.result.ResultProcessor;
+//import com.github.barcodeeye.scan.result.ResultProcessorFactory;
 import com.github.barcodeeye.scan.ui.ViewfinderView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
@@ -300,11 +300,15 @@ public final class CaptureActivity extends BaseGlassActivity implements
             Log.e(TAG, "Failed to save image!", e);
         }
 
-        ResultProcessor<?> processor = ResultProcessorFactory
-                .makeResultProcessor(this, rawResult, imageUri);
+        Log.i(TAG, rawResult.toString());
+        restartPreviewAfterDelay(5000);
 
-        startActivity(ResultsActivity.newIntent(this,
-                processor.getCardResults()));
+
+//        ResultProcessor<?> processor = ResultProcessorFactory
+//                .makeResultProcessor(this, rawResult, imageUri);
+//
+//        startActivity(ResultsActivity.newIntent(this,
+//                processor.getCardResults()));
     }
 
     private void initCamera(SurfaceHolder surfaceHolder) {
