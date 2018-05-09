@@ -35,13 +35,10 @@ import android.view.SurfaceView;
 
 import com.github.barcodeeye.BaseGlassActivity;
 import com.github.barcodeeye.R;
-import com.github.barcodeeye.image.ImageManager;
 import com.github.barcodeeye.migrated.AmbientLightManager;
 import com.github.barcodeeye.migrated.BeepManager;
 import com.github.barcodeeye.migrated.FinishListener;
 import com.github.barcodeeye.migrated.InactivityTimer;
-//import com.github.barcodeeye.scan.result.ResultProcessor;
-//import com.github.barcodeeye.scan.result.ResultProcessorFactory;
 import com.github.barcodeeye.scan.ui.ViewfinderView;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
@@ -82,7 +79,7 @@ public final class CaptureActivity extends BaseGlassActivity implements
     private InactivityTimer mInactivityTimer;
     private BeepManager mBeepManager;
     private AmbientLightManager mAmbientLightManager;
-    private ImageManager mImageManager;
+    //private ImageManager mImageManager;
 
     public static Intent newIntent(Context context) {
         Intent intent = new Intent(context, CaptureActivity.class);
@@ -106,7 +103,7 @@ public final class CaptureActivity extends BaseGlassActivity implements
         super.onCreate(icicle);
         setContentView(R.layout.activity_capture);
 
-        mImageManager = new ImageManager(this);
+        //mImageManager = new ImageManager(this);
 
         mHasSurface = false;
         mInactivityTimer = new InactivityTimer(this);
@@ -293,12 +290,12 @@ public final class CaptureActivity extends BaseGlassActivity implements
 
         Uri imageUri = null;
         String imageName = IMAGE_PREFIX + System.currentTimeMillis() + ".png";
-        Log.v(TAG, "Saving image as: " + imageName);
-        try {
-            imageUri = mImageManager.saveImage(imageName, barcode);
-        } catch (IOException e) {
-            Log.e(TAG, "Failed to save image!", e);
-        }
+//        Log.v(TAG, "Saving image as: " + imageName);
+//        try {
+//            imageUri = mImageManager.saveImage(imageName, barcode);
+//        } catch (IOException e) {
+//            Log.e(TAG, "Failed to save image!", e);
+//        }
 
         Log.i(TAG, rawResult.toString());
         restartPreviewAfterDelay(5000);

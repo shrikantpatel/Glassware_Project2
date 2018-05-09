@@ -16,6 +16,10 @@ package com.google.zxing.client.android.camera.open;
 import android.hardware.Camera;
 import android.util.Log;
 
+/**
+ * This is interface with camera on the google glasaes.
+ * @see com.google.zxing.client.android.camera.CameraManager
+ */
 public final class OpenCameraInterface {
 
     private static final String TAG = OpenCameraInterface.class.getName();
